@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="form-box">
+        <form #frm="ngForm" (ngSubmit)="calcularResultado()" >
+            <h2>Calculadora</h2>
+            <label for="numero1">Número 1:</label>
+            <input type="number" name="numero1" id="numero1"  [(ngModel)]="numero1">
+
+            <label for="numero2">Número 2:</label>
+            <input type="number" name="numero2" id="numero2" [(ngModel)]="numero2" >
+
+            <button type="submit" >Somar</button>
+        </form>
+
+         <div class="result-display" *ngIf="resultado"><!--Apenas if não usa else tem que fazer importação import {CommonModule} from '@angular/common';-->
+              <p>Seu resultado está abaixo:</p>
+          </div>
+
+        <!--Esse tipo usa if e o else-->
+        @if(resultado){<!--resultado != 0 && resultado != null && resultado != undefined && resultado !== false-->
+          <div class="result-display">
+              <p>Resultado: <span id="result">{{resultado}}</span></p>
+          </div>
+        } @else {
+          <p>Seu resultado aparecerá aqui.</p>
+        }
+    </div>
+</div>
